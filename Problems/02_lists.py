@@ -51,29 +51,28 @@ print(mode.most_common(1))  # I had to google this one but I guess I found out a
 # I cant figure out how to do these
 # Find the number of prime numbers in num_list?
 # Hint: One way is to just start removing the ones that aren't
+prime_list = []
 for num in num_list:
-    if num % 2 == 0:
-        del num
-    elif num % 3 == 0:
-        del num
-    elif num % 4 == 0:
-        del num
-    elif num % 5 == 0:
-        del num
-    elif num % 6 == 0:
-        del num
-    elif num % 7 == 0:
-        del num
-    elif num % 8 == 0:
-        del num
-    elif num % 9 == 0:
-        del num
-
-print(num_list)  # this was my best idea
+    if num > 1:
+        for i in range(2, num):
+            if (num % i) == 0:
+                break
+            else:
+                if num == num in prime_list:
+                    break
+                else:
+                    prime_list.append(num)
+                    prime_list.sort()
 
 # Find the number of palindromes
 # Hint: This may be easier to do with strings
 
+pal_list = []
 
+for i in num_list:
+    num = str(i)
+    if "".join(reversed(num)) == num:
+        pal_list.append(num)
+print(pal_list)
 
 

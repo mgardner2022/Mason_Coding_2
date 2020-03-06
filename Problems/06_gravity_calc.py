@@ -14,30 +14,38 @@
 # (2pts) keeps asking for inputs until they are valid (see while loop from notes)
 # (3pts) calculates the force of gravity in Newtons and print the result to the user in scientific notation to two decimals.
 done = False
+donetwo = False
+donethree = False
 while not done:
     try:
         massone = float(input("Input mass 1: "))
-    except:
-        print("Not a valid integer")
-    try:
-        masstwo = float(input("Input mass 2: "))
-    except:
-        print("Not a valid integer")
-    try:
-        distance = float(input("Input distance between bodies: "))
         done = True
+        while not donetwo:
+            try:
+                masstwo = float(input("Input mass 2: "))
+                donetwo = True
+                while not donethree:
+                    try:
+                        distance = float(input("Input distance between bodies: "))
+                        donethree = True
+                    except:
+                        print("Not a valid integer")
+            except:
+                print("Not a valid integer")
+
     except:
         print("Not a valid integer")
 
 
-donetwo = False
-while not donetwo:
+donefour = False
+while not donefour:
     try:
         x = (6.67 ** -11) * (massone * masstwo) / distance ** 2
-        print("The force of gravity is: ", x)
-        donetwo = True
+        print("The force of gravity is: ", "{:.3}".format(x), "newtons")
+        donefour = True
     except ZeroDivisionError as h:
         print(h, "error in calculation")
+        donefour = True
 
 
 

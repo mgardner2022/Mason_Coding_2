@@ -1,0 +1,28 @@
+def recursiveh(x, y, length, depth):
+    if depth > 0:
+        my_turtle.up()
+        my_turtle.goto(x,y)
+        my_turtle.down()
+        my_turtle.setheading(0)
+        my_turtle.forward(length)
+        my_turtle.right(90)
+        my_turtle.forward(length)
+        my_turtle.left(180)
+        my_turtle.forward(length*2)
+        my_turtle.right(180)
+        my_turtle.forward(length)
+        my_turtle.right(90)
+        my_turtle.forward(length*2)
+        my_turtle.right(90)
+        my_turtle.forward(length)
+        my_turtle.left(180)
+        my_turtle.forward(length * 2)
+        my_turtle.up()
+        my_turtle.left(90)
+        recursiveh(x + length, y + length, length // 2, depth - 1)
+        recursiveh(x +length, y - length, length // 2, depth - 1)
+        recursiveh(x - length, y + length, length // 2, depth - 1)
+        recursiveh(x - length, y - length, length // 2, depth - 1)
+
+
+recursiveh(0, 0, 100, 4)

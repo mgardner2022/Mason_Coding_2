@@ -59,5 +59,5 @@ plt.show()
 
 # I think that all of the passengers drop over time because people have become more inclined ot individually transit to
 # work, wether that be through walking, biking or driving. I think that the rail passengers initially rise because rail
-# transit is often quicker then bus. Bus transit starts off huge because buses are so convenient. 
+# transit is often quicker then bus. Bus transit starts off huge because buses are so convenient.
 

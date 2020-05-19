@@ -17,4 +17,52 @@ print(type(my_tuple))
 
 
 # If you have extra time, try to put some html into the popup.
+import folium
+import csv
+from folium import plugins
+
+
+with open('CTA_-_System_Information_-_List_of__L__Stops (1).csv') as \
+        f:
+    reader = csv.reader(f)
+    data = list(reader)
+
+data.pop(0)
+
+
+stoplist = [eval(x[-1]) for x in data]
+stopnames = [x[3] for x in data]
+colors = []
+
+for train in data:
+    if train[7] == 'true':
+        colors.append('red')
+    elif train[8] == 'true':
+        colors.append('blue')
+    elif train[9] == 'true':
+        colors.append('green')
+    elif train[10] == 'true':
+        colors.append('	#A52A2A')
+    elif train[11] == 'true' or train[12] == 'true':
+        colors.append('purple')
+    elif train[13] == 'true':
+        colors.append('#FFFF00')
+    elif train[14] == 'true':
+        colors.append('pink')
+    elif train[-2] == 'true':
+        colors.append('orange')
+    else:
+        colors.append('black')
+
+
+cta_map = folium.Map(location=[41.880443, -87.644107], zoom_start=11.3)
+
+for i in range(len(data)):
+    folium.Marker(location=(stoplist[i]),
+                  popup=stopnames[i],
+                  icon=folium.plugins.BeautifyIcon(border_color=(colors[i]), icon='train', prefix='fa')
+                  ).add_to(cta_map)
+
+
+cta_map.save('cta_map.html')
 
